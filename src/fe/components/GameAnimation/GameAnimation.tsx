@@ -55,7 +55,7 @@ const GameAnimation = ({
           <div
             key={i}
             className={`path-dot${i < correctCount ? " path-dot-active" : ""}`}
-            style={{ left: `${(i / totalQuestions) * 85 + 5}%` }}
+            style={{ left: `${8 + (i / totalQuestions) * 70}%` }}
           />
         ))}
 
