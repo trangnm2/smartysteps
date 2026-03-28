@@ -12,8 +12,8 @@
 }
 
 .submit-btn img {
-  width: 22.5cqw;
-  min-width: 21.6cqw;
+  width: 33.75cqw;
+  min-width: 32.4cqw;
   height: auto;
   object-fit: contain;
 }
@@ -41,6 +41,6 @@ body.is-mobile .submit-btn {
 }
 
 body.is-mobile .submit-btn-img {
-  width: calc(22.5 * var(--qu));
+  width: calc(33.75 * var(--qu));
   height: auto;
 }
