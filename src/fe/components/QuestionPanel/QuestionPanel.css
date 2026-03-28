@@ -9,9 +9,9 @@
   position: relative;
   width: 220%;
   display: block;
-  background-image: var(--question-frame);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-color: rgba(255, 253, 245, 0.92);
+  border: 0.4cqw solid hsl(15, 60%, 50%);
+  border-radius: 2cqw;
   aspect-ratio: 2.5 / 1;
   box-sizing: border-box;
   flex-shrink: 1;
