@@ -94,15 +94,13 @@
 }
 
 body.is-mobile .question-container {
-  background-image: var(--question-frame);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-color: rgba(255, 253, 245, 0.92);
+  border: calc(0.4 * var(--qu)) solid hsl(15, 60%, 50%);
+  border-radius: calc(2 * var(--qu));
   padding: 10% 12%;
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  border: none;
-  border-image: none;
   aspect-ratio: unset;
   flex: 2;
   min-height: 0;
