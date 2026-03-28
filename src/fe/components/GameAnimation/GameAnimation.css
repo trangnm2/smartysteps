@@ -44,8 +44,8 @@
 .flower-row-player {
   position: absolute;
   bottom: 18%;
-  width: 10cqw;
-  max-width: 120px;
+  width: 15cqw;
+  max-width: 180px;
   height: auto;
   z-index: 20;
   transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -80,8 +80,8 @@
   position: absolute;
   right: -2%;
   bottom: 0%;
-  width: 22cqw;
-  max-width: 240px;
+  width: 33cqw;
+  max-width: 360px;
   height: auto;
   z-index: 10;
   transition: filter 0.5s ease, transform 0.3s ease;
@@ -134,7 +134,7 @@ body.is-mobile .flower-row-track {
 }
 
 body.is-mobile .flower-row-player {
-  width: calc(14 * var(--ru));
+  width: calc(21 * var(--ru));
   max-width: none;
   bottom: 22%;
 }
@@ -146,7 +146,7 @@ body.is-mobile .path-dot {
 }
 
 body.is-mobile .school-gate-finish {
-  width: calc(28 * var(--ru));
+  width: calc(42 * var(--ru));
   max-width: none;
 }
 
