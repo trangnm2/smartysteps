@@ -14,8 +14,9 @@
   border-radius: 2cqw;
   box-sizing: border-box;
   flex-shrink: 1;
-  min-height: 0;
-  padding: 3cqw 5cqw;
+  min-height: 12cqw;
+  padding: 4cqw 5cqw;
+  margin-top: 4cqw;
 }
 
 .question-text {
