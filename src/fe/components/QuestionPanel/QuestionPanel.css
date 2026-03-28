@@ -7,23 +7,20 @@
 
 .question-container {
   position: relative;
-  width: 120%;
+  width: 220%;
   display: block;
-  background-image: var(--question-frame);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  aspect-ratio: 2.5 / 1;
+  background-color: rgba(255, 253, 245, 0.92);
+  border: 0.4cqw solid hsl(15, 60%, 50%);
+  border-radius: 2cqw;
   box-sizing: border-box;
   flex-shrink: 1;
-  min-height: 0;
+  min-height: 12cqw;
+  padding: 4cqw 5cqw;
+  margin-top: 4cqw;
 }
 
 .question-text {
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  left: 10%;
-  right: 10%;
+  position: relative;
   z-index: 2;
   font-size: max(2.7cqw, 3.7cqw);
   font-weight: 600;
@@ -34,6 +31,7 @@
   box-sizing: border-box;
   overflow-x: visible;
   overflow-y: auto;
+  max-height: 25cqw;
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding-right: 2%;
@@ -94,26 +92,20 @@
 }
 
 body.is-mobile .question-container {
-  background-image: var(--question-frame);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  padding: 10% 12%;
+  background-color: rgba(255, 253, 245, 0.92);
+  border: calc(0.4 * var(--qu)) solid hsl(15, 60%, 50%);
+  border-radius: calc(2 * var(--qu));
+  padding: calc(2 * var(--qu)) calc(3 * var(--qu));
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  border: none;
-  border-image: none;
-  aspect-ratio: unset;
-  flex: 2;
+  flex: unset;
   min-height: 0;
 }
 
 body.is-mobile .question-text {
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  left: 12%;
-  right: 13%;
+  position: relative;
+  max-height: calc(20 * var(--qu));
   font-size: calc(3.5 * var(--qu));
   color: #4a2c00;
   text-align: justify;
