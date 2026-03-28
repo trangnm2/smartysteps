@@ -41,6 +41,6 @@ body.is-mobile .submit-btn {
 }
 
 body.is-mobile .submit-btn-img {
-  width: calc(22.5 * var(--qu));
+  width: calc(33.75 * var(--qu));
   height: auto;
 }
