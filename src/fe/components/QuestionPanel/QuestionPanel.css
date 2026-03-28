@@ -14,8 +14,9 @@
   border-radius: 2cqw;
   box-sizing: border-box;
   flex-shrink: 1;
-  min-height: 0;
-  padding: 3cqw 5cqw;
+  min-height: 12cqw;
+  padding: 4cqw 5cqw;
+  margin-top: 4cqw;
 }
 
 .question-text {
@@ -30,7 +31,7 @@
   box-sizing: border-box;
   overflow-x: visible;
   overflow-y: auto;
-  max-height: 20cqw;
+  max-height: 25cqw;
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding-right: 2%;
