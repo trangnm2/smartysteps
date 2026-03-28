@@ -14,6 +14,13 @@
   opacity: 0.5;
 }
 
+.score-item.completed-correct {
+  filter: grayscale(0%) brightness(1.1) drop-shadow(0 0 0.5cqw rgba(255, 50, 50, 0.8)) drop-shadow(0 0 1.2cqw rgba(255, 100, 50, 0.5));
+  transform: scale(1);
+  opacity: 1;
+  animation: scoreGlow 2s ease-in-out infinite alternate;
+}
+
 .score-item img {
   width: 100%;
   height: auto;
