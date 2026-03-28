@@ -146,7 +146,7 @@ body.is-mobile .path-dot {
 }
 
 body.is-mobile .school-gate-finish {
-  width: calc(28 * var(--ru));
+  width: calc(42 * var(--ru));
   max-width: none;
 }
 
