@@ -42,7 +42,10 @@ const GameAnimation = ({
 
   // Player moves from left (0%) to the gate on the right
   // Position is based on correctCount / totalQuestions
-  const playerLeft = `${(playerPosition / totalQuestions) * 85}%`;
+  // Symmetric: 8% margin on both sides, player moves from 8% to 78%
+  const startPos = 8;
+  const endPos = 78;
+  const playerLeft = `${startPos + (playerPosition / totalQuestions) * (endPos - startPos)}%`;
 
   return (
     <section className="animation-section flower-row-section">
