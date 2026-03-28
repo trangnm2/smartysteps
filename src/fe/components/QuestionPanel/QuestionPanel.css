@@ -12,18 +12,14 @@
   background-color: rgba(255, 253, 245, 0.92);
   border: 0.4cqw solid hsl(15, 60%, 50%);
   border-radius: 2cqw;
-  aspect-ratio: 2.5 / 1;
   box-sizing: border-box;
   flex-shrink: 1;
   min-height: 0;
+  padding: 3cqw 5cqw;
 }
 
 .question-text {
-  position: absolute;
-  top: 20%;
-  bottom: 20%;
-  left: 10%;
-  right: 10%;
+  position: relative;
   z-index: 2;
   font-size: max(2.7cqw, 3.7cqw);
   font-weight: 600;
@@ -34,6 +30,7 @@
   box-sizing: border-box;
   overflow-x: visible;
   overflow-y: auto;
+  max-height: 20cqw;
   word-wrap: break-word;
   overflow-wrap: break-word;
   padding-right: 2%;
