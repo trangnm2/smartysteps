@@ -2,7 +2,7 @@
 import "./GameAnimation.css";
 import { useEffect } from "react";
 import { useGameAnimation, useDevice } from "@/fe/hooks";
-import { FLOWER_ASSETS, TARGET_BUSH } from "@/fe/theme";
+import { TARGET_BUSH } from "@/fe/theme";
 
 export interface GameAnimationProps {
   totalQuestions: number;
@@ -26,7 +26,6 @@ const GameAnimation = ({
   const { assets } = useDevice();
   const {
     playerPosition,
-    activatedFlowers,
     isJumping,
     resetPositions,
   } = useGameAnimation({
@@ -41,46 +40,36 @@ const GameAnimation = ({
     onResetRef?.(resetPositions);
   }, [onResetRef, resetPositions]);
 
-  // 6 items total: 5 flowers + 1 bouquet, evenly spaced
-  const totalSlots = totalQuestions + 1;
-  const getSlotPosition = (idx: number) => `${(idx / (totalSlots - 1)) * 100}%`;
+  // Player moves from left (0%) to the gate on the right
+  // Position is based on correctCount / totalQuestions
+  const playerLeft = `${(playerPosition / totalQuestions) * 85}%`;
 
   return (
     <section className="animation-section flower-row-section">
       <div className="flower-row-track">
-        {/* Player (squirrel) */}
+        {/* Progress path dots */}
+        {Array.from({ length: totalQuestions }, (_, i) => (
+          <div
+            key={i}
+            className={`path-dot${i < correctCount ? " path-dot-active" : ""}`}
+            style={{ left: `${(i / totalQuestions) * 85 + 5}%` }}
+          />
+        ))}
+
+        {/* Player (mascot) */}
         <div
           className={`flower-row-player${isJumping ? " flower-row-player-jump" : ""}`}
-          style={{
-            left: getSlotPosition(playerPosition),
-          }}
+          style={{ left: playerLeft }}
         >
           <img src={assets.player} alt="Player" />
         </div>
 
-        {/* Flowers */}
-        {FLOWER_ASSETS.map((flower, idx) => (
-          <div
-            key={idx}
-            className={`flower-slot${activatedFlowers[idx] ? " flower-activated" : " flower-dim"}`}
-            style={{
-              left: getSlotPosition(idx),
-            }}
-          >
-            <img src={flower.src} alt={flower.alt} />
-            {activatedFlowers[idx] && <div className="flower-glow" />}
-          </div>
-        ))}
-
-        {/* Target Bouquet */}
+        {/* School Gate (finish) */}
         <div
-          className={`flower-slot flower-target${correctCount >= totalQuestions ? " flower-activated" : " flower-dim"}`}
-          style={{
-            left: getSlotPosition(totalQuestions),
-          }}
+          className={`school-gate-finish${correctCount >= totalQuestions ? " gate-reached" : ""}`}
         >
           <img src={TARGET_BUSH.src} alt={TARGET_BUSH.alt} />
-          {correctCount >= totalQuestions && <div className="flower-glow" />}
+          {correctCount >= totalQuestions && <div className="gate-glow" />}
         </div>
       </div>
     </section>

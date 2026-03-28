@@ -1,4 +1,4 @@
-/* === Flower Row Section — pinned to bottom of screen === */
+/* === Animation Section — pinned to bottom === */
 .flower-row-section {
   position: relative;
   z-index: 5;
@@ -13,7 +13,7 @@
 
 .flower-row-track {
   position: relative;
-  width: 60%;
+  width: 70%;
   max-width: 900px;
   margin: 0 auto;
   height: 100%;
@@ -22,10 +22,28 @@
   padding-bottom: 1cqw;
 }
 
-/* Player (mascot) — sized to fit centered within a flower pot */
+/* Progress path dots */
+.path-dot {
+  position: absolute;
+  bottom: 12%;
+  width: 1.5cqw;
+  height: 1.5cqw;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.path-dot-active {
+  background: #ff9800;
+  box-shadow: 0 0 6px 2px rgba(255, 152, 0, 0.5);
+}
+
+/* Player (mascot) */
 .flower-row-player {
   position: absolute;
-  bottom: 35%;
+  bottom: 18%;
   width: 10cqw;
   max-width: 120px;
   height: auto;
@@ -57,24 +75,20 @@
   100% { transform: translateX(-50%) translateY(0) scale(1); }
 }
 
-/* Flower slots — constrained to not exceed track height */
-.flower-slot {
+/* School Gate (finish) */
+.school-gate-finish {
   position: absolute;
+  right: 0;
   bottom: 2%;
-  width: 8cqw;
-  max-width: 100px;
+  width: 14cqw;
+  max-width: 160px;
   height: auto;
   z-index: 10;
   transition: filter 0.5s ease, transform 0.3s ease;
-  transform: translateX(-50%);
+  filter: brightness(0.5) saturate(0.3);
 }
 
-.flower-slot.flower-target {
-  width: 11cqw;
-  max-width: 140px;
-}
-
-.flower-slot img {
+.school-gate-finish img {
   width: 100%;
   height: auto;
   display: block;
@@ -82,38 +96,31 @@
   z-index: 2;
 }
 
-/* Dim state */
-.flower-dim {
-  filter: brightness(0.4) saturate(0.3);
-}
-
-/* Activated state */
-.flower-activated {
+.school-gate-finish.gate-reached {
   filter: brightness(1.1) saturate(1.2);
-  transform: translateX(-50%) scale(1.05);
+  transform: scale(1.08);
 }
 
-/* Glow effect */
-.flower-glow {
+.gate-glow {
   position: absolute;
   bottom: -10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 120%;
+  width: 130%;
   height: 60%;
   background: radial-gradient(ellipse at center, rgba(255, 200, 50, 0.6) 0%, rgba(255, 180, 30, 0.3) 40%, transparent 70%);
   border-radius: 50%;
   z-index: 1;
-  animation: flowerPulse 2s ease-in-out infinite;
+  animation: gatePulse 2s ease-in-out infinite;
   pointer-events: none;
 }
 
-@keyframes flowerPulse {
+@keyframes gatePulse {
   0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
   50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
 }
 
-/* Mobile — safe margin from buttons above, proportioned for smaller screens */
+/* Mobile */
 body.is-mobile .flower-row-section {
   min-height: 0;
   padding: 0 2%;
@@ -122,23 +129,24 @@ body.is-mobile .flower-row-section {
 }
 
 body.is-mobile .flower-row-track {
-  width: 80%;
+  width: 85%;
   height: 75%;
 }
 
 body.is-mobile .flower-row-player {
   width: calc(14 * var(--ru));
   max-width: none;
-  bottom: 38%;
+  bottom: 22%;
 }
 
-body.is-mobile .flower-slot {
-  width: calc(11 * var(--ru));
-  max-width: none;
+body.is-mobile .path-dot {
+  width: calc(2 * var(--ru));
+  height: calc(2 * var(--ru));
+  bottom: 15%;
 }
 
-body.is-mobile .flower-slot.flower-target {
-  width: calc(15 * var(--ru));
+body.is-mobile .school-gate-finish {
+  width: calc(18 * var(--ru));
   max-width: none;
 }
 
