@@ -17,7 +17,6 @@ export function useQuizState(options: UseQuizStateOptions = {}) {
   const isSampleMode = useMemo(() => {
     if (typeof window !== 'undefined') {
       const urlParams = new URLSearchParams(window.location.search);
-      if (!window.location.search || window.location.search === '?') return true;
       return urlParams.get('sample') === 'true';
     }
     return false;
