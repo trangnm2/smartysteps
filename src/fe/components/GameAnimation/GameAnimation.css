@@ -156,7 +156,7 @@ body.is-mobile .flower-row-track {
 body.is-mobile .flower-row-player {
   width: calc(21 * var(--ru));
   max-width: none;
-  bottom: 22%;
+  bottom: 34%;
 }
 
 body.is-mobile .path-supply {
