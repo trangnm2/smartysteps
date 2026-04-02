@@ -22,22 +22,42 @@
   padding-bottom: 1cqw;
 }
 
-/* Progress path dots */
-.path-dot {
+/* School supply path markers */
+.path-supply {
   position: absolute;
-  bottom: 12%;
-  width: 1.5cqw;
-  height: 1.5cqw;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 50%;
+  bottom: 8%;
+  width: 3.5cqw;
+  height: 3.5cqw;
   transform: translateX(-50%);
   z-index: 5;
-  transition: background 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: grayscale(0.6) opacity(0.5);
 }
 
-.path-dot-active {
-  background: #ff9800;
-  box-shadow: 0 0 6px 2px rgba(255, 152, 0, 0.5);
+.supply-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter 0.5s ease;
+}
+
+.path-supply-active {
+  filter: grayscale(0) opacity(1);
+  transform: translateX(-50%) scale(1.15);
+}
+
+.path-supply-active .supply-icon.supply-active {
+  filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.8)) drop-shadow(0 0 12px rgba(255, 180, 30, 0.5));
+}
+
+.path-supply-new {
+  animation: supplyGlow 0.8s ease-out;
+}
+
+@keyframes supplyGlow {
+  0% { transform: translateX(-50%) scale(1); filter: grayscale(0.6) opacity(0.5); }
+  40% { transform: translateX(-50%) scale(1.5); filter: grayscale(0) opacity(1) brightness(1.5); }
+  100% { transform: translateX(-50%) scale(1.15); filter: grayscale(0) opacity(1); }
 }
 
 /* Player (mascot) */
