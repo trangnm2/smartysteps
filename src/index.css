@@ -37,6 +37,7 @@
     flex-direction: column;
     container-type: inline-size;
     overflow: visible;
+    filter: brightness(1.15);
   }
 
   .game-container::before {
