@@ -159,10 +159,10 @@ body.is-mobile .flower-row-player {
   bottom: 22%;
 }
 
-body.is-mobile .path-dot {
-  width: calc(2 * var(--ru));
-  height: calc(2 * var(--ru));
-  bottom: 15%;
+body.is-mobile .path-supply {
+  width: calc(4.5 * var(--ru));
+  height: calc(4.5 * var(--ru));
+  bottom: 12%;
 }
 
 body.is-mobile .school-gate-finish {
