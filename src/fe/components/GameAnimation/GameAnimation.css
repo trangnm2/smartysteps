@@ -22,42 +22,24 @@
   padding-bottom: 1cqw;
 }
 
-/* School supply path markers */
-.path-supply {
+/* Progress path dots */
+.path-dot {
   position: absolute;
-  bottom: 8%;
-  width: 3.5cqw;
-  height: 3.5cqw;
+  bottom: 12%;
+  width: 1.5cqw;
+  height: 1.5cqw;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
   transform: translateX(-50%);
   z-index: 5;
-  transition: transform 0.4s ease, filter 0.4s ease;
-  filter: grayscale(0.6) opacity(0.5);
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-.supply-icon {
-  width: 100%;
-  height: 100%;
-  display: block;
-  transition: filter 0.5s ease;
-}
-
-.path-supply-active {
-  filter: grayscale(0) opacity(1);
-  transform: translateX(-50%) scale(1.15);
-}
-
-.path-supply-active .supply-icon.supply-active {
-  filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.8)) drop-shadow(0 0 12px rgba(255, 180, 30, 0.5));
-}
-
-.path-supply-new {
-  animation: supplyGlow 0.8s ease-out;
-}
-
-@keyframes supplyGlow {
-  0% { transform: translateX(-50%) scale(1); filter: grayscale(0.6) opacity(0.5); }
-  40% { transform: translateX(-50%) scale(1.5); filter: grayscale(0) opacity(1) brightness(1.5); }
-  100% { transform: translateX(-50%) scale(1.15); filter: grayscale(0) opacity(1); }
+.path-dot-active {
+  background: #ff9800;
+  box-shadow: 0 0 6px 2px rgba(255, 152, 0, 0.5);
 }
 
 /* Player (mascot) */
@@ -84,15 +66,28 @@
 }
 
 @keyframes squirrelIdle {
-  0%, 100% { transform: translateX(-50%) translateY(0) rotate(-1deg); }
-  50% { transform: translateX(-50%) translateY(-0.5cqw) rotate(1deg); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-0.5cqw) rotate(1deg);
+  }
 }
 
 @keyframes squirrelJump {
-  0% { transform: translateX(-50%) translateY(0) scale(1); }
-  30% { transform: translateX(-50%) translateY(-3cqw) scale(1.1); }
-  60% { transform: translateX(-50%) translateY(-1cqw) scale(1.05); }
-  100% { transform: translateX(-50%) translateY(0) scale(1); }
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  30% {
+    transform: translateX(-50%) translateY(-3cqw) scale(1.1);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-1cqw) scale(1.05);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
 }
 
 /* School Gate (finish) */
@@ -104,7 +99,9 @@
   max-width: 360px;
   height: auto;
   z-index: 10;
-  transition: filter 0.5s ease, transform 0.3s ease;
+  transition:
+    filter 0.5s ease,
+    transform 0.3s ease;
   filter: brightness(0.5) saturate(0.3);
 }
 
@@ -128,7 +125,12 @@
   transform: translateX(-50%);
   width: 130%;
   height: 60%;
-  background: radial-gradient(ellipse at center, rgba(255, 200, 50, 0.6) 0%, rgba(255, 180, 30, 0.3) 40%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 200, 50, 0.6) 0%,
+    rgba(255, 180, 30, 0.3) 40%,
+    transparent 70%
+  );
   border-radius: 50%;
   z-index: 1;
   animation: gatePulse 2s ease-in-out infinite;
@@ -136,8 +138,15 @@
 }
 
 @keyframes gatePulse {
-  0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
-  50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+  }
 }
 
 /* Mobile */
@@ -159,10 +168,10 @@ body.is-mobile .flower-row-player {
   bottom: 22%;
 }
 
-body.is-mobile .path-supply {
-  width: calc(4.5 * var(--ru));
-  height: calc(4.5 * var(--ru));
-  bottom: 12%;
+body.is-mobile .path-dot {
+  width: calc(2 * var(--ru));
+  height: calc(2 * var(--ru));
+  bottom: 15%;
 }
 
 body.is-mobile .school-gate-finish {
