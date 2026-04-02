@@ -156,13 +156,13 @@ body.is-mobile .flower-row-track {
 body.is-mobile .flower-row-player {
   width: calc(21 * var(--ru));
   max-width: none;
-  bottom: 22%;
+  bottom: 40%;
 }
 
 body.is-mobile .path-supply {
   width: calc(4.5 * var(--ru));
   height: calc(4.5 * var(--ru));
-  bottom: 12%;
+  bottom: 28%;
 }
 
 body.is-mobile .school-gate-finish {
