@@ -130,7 +130,7 @@ const GameAnimation = ({
             <div
               key={i}
               className={`path-supply${isActive ? " path-supply-active" : ""}${isNewlyActive ? " path-supply-new" : ""}`}
-              style={{ left: `${8 + (i / totalQuestions) * 70}%` }}
+              style={{ left: `${startPos + ((i + 0.5) / totalQuestions) * (endPos - startPos)}%` }}
             >
               {SCHOOL_SUPPLIES[supplyIndex](isActive)}
             </div>
