@@ -115,7 +115,7 @@ const GameAnimation = ({
   }, [onResetRef, resetPositions]);
 
   const startPos = 8;
-  const endPos = 78;
+  const endPos = 82;
   const playerLeft = `${startPos + (playerPosition / totalQuestions) * (endPos - startPos)}%`;
 
   return (
