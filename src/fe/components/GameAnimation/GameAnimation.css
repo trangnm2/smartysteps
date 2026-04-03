@@ -88,8 +88,8 @@
 /* School Gate (finish) */
 .school-gate-finish {
   position: absolute;
-  right: 0%;
-  bottom: 10%;
+  right: 2%;
+  bottom: 22%;
   width: 33cqw;
   max-width: 360px;
   height: auto;
