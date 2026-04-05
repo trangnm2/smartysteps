@@ -22,6 +22,7 @@
 .question-text {
   position: absolute;
   top: 10%;
+  bottom: 10%;
   z-index: 2;
   font-size: max(2.7cqw, 3.7cqw);
   font-weight: 600;
