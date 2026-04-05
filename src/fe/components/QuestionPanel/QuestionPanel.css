@@ -15,7 +15,7 @@
   box-sizing: border-box;
   flex-shrink: 1;
   min-height: 12cqw;
-  aspect-ratio: 2.5 / 1.5;
+  aspect-ratio: 2 / 1;
   padding: 4cqw 5cqw;
   margin-top: 4cqw;
 }
