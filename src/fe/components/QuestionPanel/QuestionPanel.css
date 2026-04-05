@@ -108,7 +108,7 @@ body.is-mobile .question-container {
 body.is-mobile .question-text {
   position: absolute;
   top: 20%;
-  bottom: 20%
+  bottom: 20%;
   max-height: calc(20 * var(--qu));
   font-size: calc(3.5 * var(--qu));
   color: #4a2c00;
