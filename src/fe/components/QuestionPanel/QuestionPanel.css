@@ -15,7 +15,6 @@
   box-sizing: border-box;
   flex-shrink: 1;
   min-height: 12cqw;
-  aspect-ratio: 2 / 1;
   padding: 4cqw 5cqw;
   margin-top: 4cqw;
 }
@@ -108,6 +107,7 @@ body.is-mobile .question-container {
 body.is-mobile .question-text {
   position: absolute;
   top: 10%;
+  bottom: -20%;
   max-height: calc(20 * var(--qu));
   font-size: calc(3.5 * var(--qu));
   color: #4a2c00;
