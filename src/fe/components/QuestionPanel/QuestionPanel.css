@@ -36,6 +36,7 @@
   overflow-wrap: break-word;
   padding-right: 2%;
   display: flex;
+  align-items: center;
 }
 
 .question-text::-webkit-scrollbar {
