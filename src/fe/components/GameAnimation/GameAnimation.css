@@ -172,7 +172,7 @@ body.is-mobile .path-supply {
 body.is-mobile .school-gate-finish {
   width: calc(42 * var(--ru));
   max-width: none;
-  right: 20%;
+  left: 20%;
 }
 
 .player-name {
