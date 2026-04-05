@@ -21,6 +21,7 @@
 
 .question-text {
   position: absolute;
+  top: 5vh;
   z-index: 2;
   font-size: max(2.7cqw, 3.7cqw);
   font-weight: 600;
@@ -36,7 +37,7 @@
   overflow-wrap: break-word;
   padding-right: 2%;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .question-text::-webkit-scrollbar {
