@@ -114,8 +114,8 @@ const GameAnimation = ({
     onResetRef?.(resetPositions);
   }, [onResetRef, resetPositions]);
 
-  const startPos = 8;
-  const endPos = 82;
+  const startPos = 15;
+  const endPos = 88;
   // Center player above the last activated supply icon, or at startPos if none
   const playerLeft = playerPosition > 0
     ? `${startPos + ((playerPosition - 0.5) / totalQuestions) * (endPos - startPos)}%`

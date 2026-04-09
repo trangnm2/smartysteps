@@ -52,6 +52,20 @@ const GameController = ({ customQuestions }: GameControllerProps) => {
   });
 
   useEffect(() => {
+    const updateArScale = () => {
+      const ratio = window.innerHeight / window.innerWidth;
+      const isPortrait = ratio > 1;
+      const scale = isPortrait
+        ? Math.max(0.75, Math.min(1.5, 0.8 + ratio * 0.2))
+        : Math.max(0.75, Math.min(1.5, 0.9 + ratio * 0.8));
+      document.documentElement.style.setProperty('--ar-scale', scale.toString());
+    };
+    updateArScale();
+    window.addEventListener('resize', updateArScale);
+    return () => window.removeEventListener('resize', updateArScale);
+  }, []);
+
+  useEffect(() => {
     if (isCompleted) {
       playFinishGame();
     }
@@ -174,7 +188,7 @@ const GameController = ({ customQuestions }: GameControllerProps) => {
               })}
             </div>
 
-            <div className="flex justify-center mt-0 w-full">
+            <div className="flex justify-center w-full">
               <SubmitButton
                 isAnswered={hasSubmitted}
                 isDisabled={isCompleted || ((!selectedAnswer && !hasSubmitted) || isSubmitting)}
