@@ -1,7 +1,5 @@
 // KHONG SUA KHI DOI GAME
-import { GAME_TEXTS } from "@/fe/theme";
-
-export const resolvePlayerName = (username?: string): string => {
+export const resolvePlayerName = (username?: string, defaultName: string = "User"): string => {
   if (typeof username === 'string' && username.trim()) return username.trim();
 
   if (typeof window !== 'undefined') {
@@ -10,5 +8,5 @@ export const resolvePlayerName = (username?: string): string => {
     if (paramName && paramName.trim()) return paramName.trim();
   }
 
-  return GAME_TEXTS.playerDefaultName;
+  return defaultName;
 };

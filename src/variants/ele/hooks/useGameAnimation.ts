@@ -1,5 +1,5 @@
 // SUA KHI DOI GAME
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useCallback } from "react";
 
 interface UseGameAnimationOptions {
   totalQuestions: number;
@@ -11,7 +11,6 @@ interface UseGameAnimationOptions {
 
 export const useGameAnimation = ({
   totalQuestions,
-  currentQuestionIndex,
   hasSubmitted,
   currentResult,
   correctCount

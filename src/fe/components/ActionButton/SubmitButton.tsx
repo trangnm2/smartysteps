@@ -1,6 +1,6 @@
 // KHONG SUA KHI DOI GAME
 import "./SubmitButton.css";
-import { GAME_TEXTS } from "@/fe/theme";
+import { useVariant } from "@/fe/context/VariantContext";
 
 interface ActionButtonProps {
   isAnswered: boolean;
@@ -10,13 +10,15 @@ interface ActionButtonProps {
   continueButtonImage: string;
 }
 
-const SubmitButton = ({ 
-  isAnswered, 
-  isDisabled, 
+const SubmitButton = ({
+  isAnswered,
+  isDisabled,
   onClick,
   submitButtonImage,
   continueButtonImage,
 }: ActionButtonProps) => {
+  const { config } = useVariant();
+  const { GAME_TEXTS } = config.settings;
 
   return (
     <button

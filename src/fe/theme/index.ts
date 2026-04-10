@@ -1,5 +1,3 @@
-export * from "./assets";
 export * from "./audio";
-export * from "./gameSettings";
 export * from "./mockQuestions";
-export * from "./flowers";
+export type { AssetSet } from "@/variants/ele/theme/assets";

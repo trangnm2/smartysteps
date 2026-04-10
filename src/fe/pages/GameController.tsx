@@ -3,8 +3,8 @@ import "./game-layout.css";
 import { useEffect, useRef, useCallback, type CSSProperties } from "react";
 import { useDevice } from "@/fe/hooks";
 import { useQuizState, useAudioController, QuizAnswer } from "@/be";
-import { GAME_TEXTS, SECTION_BACKGROUND } from "@/fe/theme";
 import { resolvePlayerName } from "@/fe/hooks";
+import { useVariant } from "@/fe/context/VariantContext";
 import {
   ScoreIndicator,
   QuestionPanel,
@@ -20,6 +20,8 @@ interface GameControllerProps {
 
 const GameController = ({ customQuestions }: GameControllerProps) => {
   const { assets, deviceType } = useDevice();
+  const { config } = useVariant();
+  const { GAME_TEXTS, SECTION_BACKGROUND } = config.settings;
   const { playButtonClick, playCorrectAnswer, playWrongAnswer, playFinishGame } = useAudioController();
   const animationResetRef = useRef<(() => void) | null>(null);
 
@@ -48,7 +50,9 @@ const GameController = ({ customQuestions }: GameControllerProps) => {
     onAnswerIncorrect: () => {
       playWrongAnswer();
     },
-    customQuestions
+    customQuestions,
+    totalQuestions: config.settings.FIXED_TOTAL_QUESTIONS,
+    useSampleData: config.settings.USE_SAMPLE_DATA,
   });
 
   useEffect(() => {
@@ -113,7 +117,7 @@ const GameController = ({ customQuestions }: GameControllerProps) => {
     );
   }
 
-  const playerName = resolvePlayerName(username);
+  const playerName = resolvePlayerName(username, GAME_TEXTS.playerDefaultName);
   const gameContainerStyle = {
     ["--game-background" as string]: `url(${assets.background})`,
   } as CSSProperties;

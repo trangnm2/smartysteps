@@ -1,0 +1,198 @@
+/* Animation section base layout */
+.animation-section.flower-row-section {
+  position: relative;
+  z-index: 15;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+  container-type: inline-size;
+}
+
+.flower-row-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* School supply path markers */
+.path-supply {
+  position: absolute;
+  bottom: 8%;
+  width: 6.5cqw;
+  height: 6.5cqw;
+  transform: translateX(-50%);
+  z-index: 5;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+  filter: grayscale(0.3) opacity(0.7);
+}
+
+.supply-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter 0.5s ease;
+}
+
+.path-supply-active {
+  filter: grayscale(0) opacity(1);
+  transform: translateX(-50%) scale(1.15);
+}
+
+.path-supply-active .supply-icon.supply-active {
+  filter: drop-shadow(0 0 6px rgba(255, 200, 50, 0.8)) drop-shadow(0 0 12px rgba(255, 180, 30, 0.5));
+}
+
+.path-supply-new {
+  animation: supplyGlow 0.8s ease-out;
+}
+
+@keyframes supplyGlow {
+  0% {
+    transform: translateX(-50%) scale(1);
+    filter: grayscale(0.6) opacity(0.5);
+  }
+  40% {
+    transform: translateX(-50%) scale(1.5);
+    filter: grayscale(0) opacity(1) brightness(1.5);
+  }
+  100% {
+    transform: translateX(-50%) scale(1.15);
+    filter: grayscale(0) opacity(1);
+  }
+}
+
+/* Player (mascot) */
+.flower-row-player {
+  position: absolute;
+  bottom: 30%;
+  width: 15cqw;
+  max-width: 180px;
+  height: auto;
+  z-index: 20;
+  transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: squirrelIdle 2s ease-in-out infinite;
+  transform: translateX(-50%);
+}
+
+@keyframes squirrelIdle {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-0.5cqw) rotate(1deg);
+  }
+}
+
+@keyframes squirrelJump {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  30% {
+    transform: translateX(-50%) translateY(-3cqw) scale(1.1);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-1cqw) scale(1.05);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+}
+
+/* School Gate (finish) */
+.school-gate-finish {
+  position: absolute;
+  right: 2%;
+  bottom: 22%;
+  width: 33cqw;
+  max-width: 360px;
+  height: auto;
+  z-index: 10;
+  transition:
+    filter 0.5s ease,
+    transform 0.3s ease;
+  filter: brightness(0.5) saturate(0.3);
+}
+
+.school-gate-finish img {
+  width: 150%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.school-gate-finish.gate-reached {
+  filter: brightness(1.1) saturate(1.2);
+  transform: scale(1.08);
+}
+
+.gate-glow {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130%;
+  height: 60%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 200, 50, 0.6) 0%,
+    rgba(255, 180, 30, 0.3) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+  animation: gatePulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes gatePulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+
+/* Mobile */
+body.is-mobile .flower-row-section {
+  min-height: 0;
+  padding: 0 2%;
+  align-items: flex-end;
+  --ru: min(1vw, 0.5vh);
+}
+
+body.is-mobile .flower-row-track {
+  width: 85%;
+  height: 75%;
+}
+
+body.is-mobile .flower-row-player {
+  width: calc(21 * var(--ru));
+  max-width: none;
+  bottom: 34%;
+}
+
+body.is-mobile .path-supply {
+  width: calc(9 * var(--ru));
+  height: calc(9 * var(--ru));
+  bottom: 12%;
+}
+
+body.is-mobile .school-gate-finish {
+  width: calc(42 * var(--ru));
+  max-width: none;
+  right: -7.5%;
+}
+
+.player-name {
+  display: none;
+}

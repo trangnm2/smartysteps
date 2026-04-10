@@ -1,7 +1,8 @@
 // KHONG SUA KHI DOI GAME
-import React, { createContext, useContext, ReactNode, useEffect } from 'react';
+import { createContext, useContext, ReactNode, useEffect } from 'react';
 import { useDeviceDetection, DeviceType } from './useDeviceDetection';
-import { getAssets, AssetSet } from '@/fe/theme';
+import { useVariant } from '@/fe/context/VariantContext';
+import type { AssetSet } from '@/variants/ele/theme/assets';
 
 interface DeviceContextType {
   deviceType: DeviceType;
@@ -17,9 +18,10 @@ interface DeviceProviderProps {
 
 export const DeviceProvider = ({ children, forcedDeviceType }: DeviceProviderProps) => {
   const autoDeviceType = useDeviceDetection();
-  
+  const { config } = useVariant();
+
   const deviceType = forcedDeviceType ?? autoDeviceType;
-  const assets = getAssets(deviceType);
+  const assets = config.assets.getAssets(deviceType);
 
   useEffect(() => {
     document.body.classList.toggle('is-mobile', deviceType === 'mobile');
